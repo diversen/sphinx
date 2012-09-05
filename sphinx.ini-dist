@@ -1,0 +1,6 @@
+sphinx_index[1] = "content_article"
+sphinx_index[2] = "blog"
+spinhx_host = "localhost"
+sphinx_port = 9312
+sphinx_timeout = 1
+sphinx_per_page = 10
