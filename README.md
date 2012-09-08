@@ -16,9 +16,13 @@ be set in the sphinx.conf file as well.
 
 It should be quite easy to implement the sphinx search with any other modules. 
 You should just add a new index for every module, e.g. you have made a forum
-
 module name is forum, and index name should also be forum. Add this to 
-sphinx.conf, with a correct index query and it should work just fine. 
+sphinx.conf, with a correct index query and it should work just fine. In order
+for this to work you will need to specify a way that the forum posts will be
+displayed. You do this by adding a static method like this: 
+
+    public static function sphinxHit ($id){} 
+    // $id e.g. id of forum post, echo some html
 
 ### Cron like this: 
 
