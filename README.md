@@ -3,8 +3,12 @@
 Sphinx search for CosCMS
 
 You will need to have sphinx installed and run the sphinx daemon
-You can check out the sphinx.conf which will work on a Ubuntu install. 
-You will just need to change username and password for mysql database. 
+You can check out the sphinx.conf found in this repo. 
+
+This should will work with a recent version of sphinx.
+ 
+You will just need to change username and password for mysql database. Then
+you will be able to search on articles and blog entries.  
 
 ### indexes
 
@@ -32,5 +36,6 @@ in system wide cronta, e.g. /etc/crontab
 20 20 * * * root  indexer --all --rotate --quiet
 
 or once every day: 
+
 
 20 * * * * root indexer --all --rotate --quiet
