@@ -1,7 +1,7 @@
 <?php
 
 include_once "coslib/pearPager.php";
-moduleLoader::includeModule ('content/article');
+moduleloader::includeModule ('content/article');
 
 
 class sphinx {
@@ -89,9 +89,9 @@ class sphinx {
     
     function generateHit ($result) {
         $index = $this->getIndexFromCategory($result['attrs']['category']);
-        $class_path = moduleLoader::moduleClassToModelPath($index);
+        $class_path = moduleloader::moduleClassToModelPath($index);
         include_model($class_path);
-        $class = moduleLoader::modulePathToClassName($index);
+        $class = moduleloader::modulePathToClassName($index);
         $class::sphinxHit ($result['attrs']['real_id']);
     }
     
