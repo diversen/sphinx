@@ -83,7 +83,7 @@ class sphinx {
     function generateSearchHeader($result) {
         $str = $result['total_found'];
         $str.= ' ' . lang::translate('sphinx_results_found');
-        headline_message($str);
+        html::headline($str);
         
     }
     
