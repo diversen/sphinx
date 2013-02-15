@@ -89,8 +89,8 @@ class sphinx {
     
     function generateHit ($result) {
         $index = $this->getIndexFromCategory($result['attrs']['category']);
-        $class_path = moduleloader::moduleClassToModelPath($index);
-        include_model($class_path);
+        $class_path = moduleloader::moduleReferenceToModulePath($index);
+        moduleloader::includeModule($class_path);
         $class = moduleloader::modulePathToClassName($index);
         $class::sphinxHit ($result['attrs']['real_id']);
     }
