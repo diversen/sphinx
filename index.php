@@ -1,8 +1,6 @@
 <?php
 
-include('sphinxapi.php');
-
-
+include_once('vendor/neutron/sphinxsearch-api/sphinxapi.php');
 
 $s = new sphinx();
 $s->form();

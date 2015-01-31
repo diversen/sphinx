@@ -1,6 +1,6 @@
 <?php
 
-include_once "coslib/pearPager.php";
+use diversen\pagination as pearPager;
 moduleloader::includeModule ('content/article');
 
 
