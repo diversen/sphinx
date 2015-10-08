@@ -1,13 +1,45 @@
 <?php
 
+namespace modules\sphinx;
+include_once('vendor/neutron/sphinxsearch-api/sphinxapi.php');
+
+use diversen\html;
+use diversen\lang;
+use diversen\moduleloader;
 use diversen\pagination as pearPager;
+use diversen\conf as config;
+
 moduleloader::includeModule ('content/article');
 
 
-class sphinx {
+class module {
     
     var $p = null;
     
+    
+
+    public function indexAction() {
+
+        $s = new self();
+        $s->form();
+
+        if (isset($_GET['search'])) {
+            $term = $_GET['search'];
+        }
+
+        if (isset($_GET['search'])) {
+            if (!isset($_GET['index']) || $_GET['index'] == 'all') {
+                $index = '*';
+            } else {
+                $index = $_GET['index'];
+            }
+
+            $s->displayResults($term, $index);
+        } else {
+            echo lang::translate('Enter search term:');
+        }
+    }
+
     function form () {
         
         $f = new html();
@@ -28,14 +60,14 @@ class sphinx {
         
         $f->label('search', lang::translate('sphinx_search_website'));
         $f->text('search');
-        $f->submit('submit', lang::system('submit'));
+        $f->submit('submit', lang::translate('submit'));
         $f->formEnd();
         echo $f->getStr();
     }
     
     
     function search ($term, $index, $from = 0, $limit = 10) {
-        $cl = new SphinxClient();
+        $cl = new \SphinxClient();
         $cl->SetServer( "localhost", 9312 );
         
         $cl->SetMatchMode( SPH_MATCH_ANY );
