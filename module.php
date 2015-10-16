@@ -49,18 +49,18 @@ class module {
         $options = config::getModuleIni('sphinx_index');
         
         $select = array ();
-        $select[] = array ('id' => 'all', 'title' => lang::translate('sphinx_search_all_index'));
+        $select[] = array ('id' => 'all', 'title' => lang::translate('All'));
         foreach ($options as $key => $option ) {
             $select[] = array ('id' => $option, 'title' => lang::translate($option));
         }
         
-        $f->label('index', lang::translate('sphinx_site_selection'));
+        $f->label('index', lang::translate('Section'));
         $f->select('index', $select);
         
         
-        $f->label('search', lang::translate('sphinx_search_website'));
+        $f->label('search', lang::translate('Text to search for'));
         $f->text('search');
-        $f->submit('submit', lang::translate('submit'));
+        $f->submit('submit', lang::translate('Submit'));
         $f->formEnd();
         echo $f->getStr();
     }
@@ -114,7 +114,7 @@ class module {
     
     function generateSearchHeader($result) {
         $str = $result['total_found'];
-        $str.= ' ' . lang::translate('sphinx_results_found');
+        $str.= ' ' . lang::translate('Results found');
         html::headline($str);
         
     }

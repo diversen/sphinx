@@ -1,5 +1,9 @@
 <?php
 
+use diversen\lang;
+
+
+
 /**
  * installer file for content module
  *
@@ -8,7 +12,7 @@
 //$content_show_latest = get_module_ini('content_show_latest');
 
 $_INSTALL['MAIN_MENU_ITEM'] = array (
-    'title' => 'sphinx_main_menu_item',
+    'title' => lang::translate('Search', null, array ('no_translate' => true)),
     'url' => '/sphinx/index',
     'module_name' => 'sphinx',
     'parent' => 0,
